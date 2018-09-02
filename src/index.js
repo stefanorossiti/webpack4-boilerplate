@@ -5,4 +5,3 @@ addImage()
 
 const helloWorldButton = new HelloWorldButton()
 helloWorldButton.render()
-

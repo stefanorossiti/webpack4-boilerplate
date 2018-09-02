@@ -1,6 +1,8 @@
 import './hello-world-button.scss'
 
 class HelloWorldButton{
+    buttonCssClass = 'hello-world-text'
+
     render(){
         const button = document.createElement('button')
         button.innerHTML = 'Hello World'
@@ -11,7 +13,7 @@ class HelloWorldButton{
         button.onclick = () => {
             const p = document.createElement('p')
             p.innerHTML = 'Hello p'
-            p.classList.add('hello-world-text')
+            p.classList.add(this.buttonCssClass)
             body.appendChild(p)
         }
 
