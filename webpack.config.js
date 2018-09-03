@@ -1,4 +1,6 @@
 const path = require('path')
+const UglifyJsPlugin = require('uglify-js-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
     entry: './src/index.js',
@@ -12,32 +14,44 @@ module.exports = {
         rules: [
             {
                 test: /\.(png|jpg)$/,
-                use:[
+                use: [
                     'file-loader'
                 ]
             },
             {
                 test: /\.css$/,
-                use:[
-                    'style-loader', 'css-loader'
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader'
                 ]
             },
             {
                 test: /\.scss$/,
-                use:[
-                    'style-loader', 'css-loader', 'sass-loader'
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'sass-loader'
                 ]
             },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                use:{
+                use: {
                     loader: 'babel-loader',
                     options: {
                         plugins: ['transform-class-properties']
                     }
                 }
             }
+        ]
+    },
+    plugins: [
+        new MiniCssExtractPlugin()
+    ],
+    optimization: {
+        minimizer: [
+            //here u can set plugin options
+            new UglifyJsPlugin()
         ]
     }
 }
