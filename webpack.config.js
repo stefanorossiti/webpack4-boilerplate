@@ -12,7 +12,7 @@ module.exports = {
         filename: 'bundle.[contenthash].js',
         publicPath: '../'
     },
-    mode: 'none',
+    mode: 'production',
     module: {
         rules: [
             {
@@ -66,11 +66,5 @@ module.exports = {
                                   template: 'src/index.hbs',
                                   description: "Handlebar template example"
                               }),
-    ],
-    optimization: {
-        minimizer: [
-            //here u can set plugin options
-            new UglifyJsPlugin()
-        ]
-    }
+    ]
 }
