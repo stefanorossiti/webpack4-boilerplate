@@ -45,7 +45,14 @@ module.exports = {
                         plugins: ['transform-class-properties']
                     }
                 }
-            }
+            },
+            {
+                test: /\.hbs$/,
+                use: {
+                    loader: 'handlebars-loader'
+                }
+            },
+
         ]
     },
     plugins: [
@@ -54,11 +61,10 @@ module.exports = {
                                  }),
         new CleanWebpackPlugin(['dist', 'temp']),
         new HtmlWebpackPlugin({
-            title: "Hello World",
-            filename: 'public/index.html',
-            meta: {
-                viewport: 'width=device-width, initial-scale=1'
-            }
+                                  filename: 'public/index.html',
+                                  title: 'Hello World',
+                                  template: 'src/index.hbs',
+                                  description: "Handlebar template example"
                               }),
     ],
     optimization: {
