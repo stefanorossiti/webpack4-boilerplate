@@ -5,9 +5,16 @@ import addImage from './add-image'
 addImage()
 
 const helloWorldButton = new HelloWorldButton()
-const heading = new Heading()
 
+const heading = new Heading()
 heading.render()
+
+const heading2 = new Heading()
+heading2.render()
+
+const heading3 = new Heading()
+heading3.render()
+
 helloWorldButton.render()
 
 if (process.env.NODE_ENV === 'production'){

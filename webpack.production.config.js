@@ -9,7 +9,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, './dist'),
         filename: 'bundle.[contenthash].js',
-        publicPath: '../'
+        publicPath: './'
     },
     mode: 'production',
     module: {
@@ -60,7 +60,7 @@ module.exports = {
                                  }),
         new CleanWebpackPlugin(['dist', 'temp']),
         new HtmlWebpackPlugin({
-                                  filename: 'public/index.html',
+                                  filename: 'index.html',
                                   title: 'Hello World',
                                   template: 'src/index.hbs',
                                   description: "Handlebar template example"

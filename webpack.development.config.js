@@ -1,7 +1,5 @@
 const path = require('path')
 
-const UglifyJsPlugin = require('uglify-js-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
@@ -10,9 +8,14 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, './dist'),
         filename: 'bundle.js',
-        publicPath: '../'
+        publicPath: ''
     },
     mode: 'development',
+    devServer: {
+        contentBase: path.resolve(__dirname, './dist'),
+        index: 'index.html',
+        port: 9001
+    },
     module: {
         rules: [
             {
@@ -58,7 +61,7 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(['dist', 'temp']),
         new HtmlWebpackPlugin({
-                                  filename: 'public/index.html',
+                                  filename: 'index.html',
                                   title: 'Hello World',
                                   template: 'src/index.hbs',
                                   description: 'Handlebar template example'
