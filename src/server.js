@@ -12,6 +12,13 @@ app.get('/', (req, res) => {
     res.send(contentOfHtmlFile)
 })
 
+app.get('/kiwi', (req, res) => {
+    const pathToHtml = path.resolve(__dirname, '../dist/kiwi.html')
+    const contentOfHtmlFile = fs.readFileSync(pathToHtml, 'utf-8')
+
+    res.send(contentOfHtmlFile)
+})
+
 app.use('/static', Express.static(path.resolve(__dirname, '../dist')))
 
 app.listen(port, () => {
