@@ -4,7 +4,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-    entry: './src/index.js',
+    entry: './src/hello-world.js',
     output: {
         path: path.resolve(__dirname, './dist'),
         filename: 'bundle.js',
@@ -63,7 +63,7 @@ module.exports = {
         new HtmlWebpackPlugin({
                                   filename: 'index.html',
                                   title: 'Hello World',
-                                  template: 'src/index.hbs',
+                                  template: 'src/page-template.hbs',
                                   description: 'Handlebar template example'
                               }),
     ]
