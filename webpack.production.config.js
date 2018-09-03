@@ -71,7 +71,7 @@ module.exports = {
         new CleanWebpackPlugin(['dist', 'temp']),
         new HtmlWebpackPlugin({
                                   filename: 'hello-world.html',
-                                  chunks: ['hello-world', 'vendors_hello-world_kiwi'],
+                                  chunks: ['hello-world', 'vendors_hello-world_kiwi', 'vendors_hello-world'],
                                   title: 'Hello World',
                                   template: 'src/page-template.hbs',
                                   description: 'Hello world page'
