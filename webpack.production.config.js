@@ -15,6 +15,11 @@ module.exports = {
         publicPath: './'
     },
     mode: 'production',
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+        }
+    },
     module: {
         rules: [
             {
@@ -64,15 +69,15 @@ module.exports = {
         new CleanWebpackPlugin(['dist', 'temp']),
         new HtmlWebpackPlugin({
                                   filename: 'hello-world.html',
-                                  chunks: ['hello-world'],
+                                  chunks: ['hello-world', 'vendors~hello-world~kiwi'],
                                   title: 'Hello World',
                                   template: 'src/page-template.hbs',
                                   description: 'Hello world page'
                               }),
         new HtmlWebpackPlugin({
                                   filename: 'kiwi.html',
-                                  chunks: ['kiwi'],
-                                  title: 'Kiwi World',                                  chunks: ['hello-world'],
+                                  chunks: ['kiwi', 'vendors~hello-world~kiwi'],
+                                  title: 'Kiwi World',
                                   template: 'src/page-template.hbs',
                                   description: 'Kiwi page'
                               }),
