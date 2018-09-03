@@ -1,6 +1,5 @@
 const path = require('path')
 
-const UglifyJsPlugin = require('uglify-js-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -12,7 +11,7 @@ module.exports = {
         filename: 'bundle.[contenthash].js',
         publicPath: '../'
     },
-    mode: 'none',
+    mode: 'production',
     module: {
         rules: [
             {
@@ -66,11 +65,5 @@ module.exports = {
                                   template: 'src/index.hbs',
                                   description: "Handlebar template example"
                               }),
-    ],
-    optimization: {
-        minimizer: [
-            //here u can set plugin options
-            new UglifyJsPlugin()
-        ]
-    }
+    ]
 }

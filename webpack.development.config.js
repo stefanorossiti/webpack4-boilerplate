@@ -9,10 +9,10 @@ module.exports = {
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, './dist'),
-        filename: 'bundle.[contenthash].js',
+        filename: 'bundle.js',
         publicPath: '../'
     },
-    mode: 'none',
+    mode: 'development',
     module: {
         rules: [
             {
@@ -24,14 +24,14 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    'style-loader',
                     'css-loader'
                 ]
             },
             {
                 test: /\.scss$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    'style-loader',
                     'css-loader',
                     'sass-loader'
                 ]
@@ -56,21 +56,12 @@ module.exports = {
         ]
     },
     plugins: [
-        new MiniCssExtractPlugin({
-                                     filename: 'styles.[contenthash].css'
-                                 }),
         new CleanWebpackPlugin(['dist', 'temp']),
         new HtmlWebpackPlugin({
                                   filename: 'public/index.html',
                                   title: 'Hello World',
                                   template: 'src/index.hbs',
-                                  description: "Handlebar template example"
+                                  description: 'Handlebar template example'
                               }),
-    ],
-    optimization: {
-        minimizer: [
-            //here u can set plugin options
-            new UglifyJsPlugin()
-        ]
-    }
+    ]
 }
