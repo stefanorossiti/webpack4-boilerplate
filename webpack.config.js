@@ -10,7 +10,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, './dist'),
         filename: 'bundle.[contenthash].js',
-        publicPath: '.'
+        publicPath: '../'
     },
     mode: 'none',
     module: {
@@ -53,7 +53,13 @@ module.exports = {
                                      filename: 'styles.[contenthash].css'
                                  }),
         new CleanWebpackPlugin(['dist', 'temp']),
-        new HtmlWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            title: "Hello World",
+            filename: 'public/index.html',
+            meta: {
+                viewport: 'width=device-width, initial-scale=1'
+            }
+                              }),
     ],
     optimization: {
         minimizer: [
